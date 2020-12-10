@@ -47,14 +47,15 @@ public class Joueur {
 		}
 		System.out.println("Que voulez vous joueur ?");
 		Scanner sc = new Scanner(System.in);
-		int nCarteJoue;
-		nCarteJoue = sc.nextInt();
+		int nCarteJoue = Integer.parseInt(sc.nextLine());
 		nCarteJoue--;
 		while(nCarteJoue >= playableCards.size()) {
 			System.out.println("L'index n'est pas valide");
 			System.out.println("Que voulez vous joueur ?");
-			nCarteJoue = sc.nextInt() - 1;
+			nCarteJoue = Integer.parseInt(sc.nextLine());
+			nCarteJoue--;
 		}
+		sc.reset();
 		sc.close();
 		Carte carteJoue = playableCards.get(nCarteJoue);
 		System.out.println("\nVous jouez la carte "+carteJoue.getName());
